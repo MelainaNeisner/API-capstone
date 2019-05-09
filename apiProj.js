@@ -1,6 +1,25 @@
 'use strict';
 window.onload = window.scrollTo(0, 0)
 
+function openButton() {
+  $('.clickOpen').click(function(event){
+    event.preventDefault();
+    $('.hidden').removeClass('hidden');
+    //$(this).toggleClass('doTheThing');
+    $('.clickOpen').animate({
+        left:'100%',
+        opacity:'.5',
+        top: '0px;',
+        margin: '0px'
+    }, 2000, function(){
+        $('.clickOpen').addClass('hidden');
+    });
+    $('.searchBox').fadeIn('slow', function(){
+        $('.searchBox').appendTo('.screenOne');
+    });
+    console.log('this was clicked');
+}
+
 function formatQueryParams(params) {
     const queryItems = Object.keys(params).map(key => `${key}=${params[key]}`);
   return queryItems.join('&');
@@ -59,6 +78,7 @@ function getBeer (searchUrl, fullName) {
         $('.js-error-message').text(`Something went wrong: ${err.message}`);
     });
 }
+
 
 $('.getBeer').on('click', function(event) {
   event.preventDefault();
