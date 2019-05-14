@@ -2,23 +2,24 @@
 window.onload = window.scrollTo(0, 0)
 
 function openButton() {
-  $('.clickOpen').click(function(event){
+  $('.gotBeer').click(function(event){
     event.preventDefault();
-    $('.hidden').removeClass('hidden');
-    //$(this).toggleClass('doTheThing');
-    $('.clickOpen').animate({
-        left:'100%',
-        opacity:'.5',
-        top: '0px;',
-        margin: '0px'
-    }, 2000, function(){
-        $('.clickOpen').addClass('hidden');
-    });
-    $('.searchBox').fadeIn('slow', function(){
-        $('.searchBox').appendTo('.screenOne');
-    });
     console.log('this was clicked');
+    $('.searchBox').removeClass('hidden');
+    $('.gotBeer').animate({ 
+          left:'100%',
+          opacity:'.5',
+          top: '0px;',
+          margin: '0px'
+    }, 2000, function(){
+      $('.gotBeer').addClass('hidden');
+    });
+    $('.beerForm').show(5000, function(){
+      $('.beerForm').removeClass('hidden');
+    });
+  });
 }
+$(openButton);
 
 function formatQueryParams(params) {
     const queryItems = Object.keys(params).map(key => `${key}=${params[key]}`);
@@ -82,14 +83,18 @@ function getBeer (searchUrl, fullName) {
 
 $('.getBeer').on('click', function(event) {
   event.preventDefault();
-  //$('#second').removeClass('hidden');
+  console.log('click click click')
+  $('.second').removeClass('alsoHidden');
   $('html,body').animate({
        scrollTop: $(".second").offset().top},
         'slow');
+  if($('.searchBeer').val() == ''){
+          alert('Please enter a city name!');
+      }      
   let fullName = $('#searchBeer').val(); //.split?
   let searchURL = 'https://api.openbrewerydb.org/breweries';
   getBeer(searchURL, fullName);
-  //load map goes here!!
+  
 });
 
 

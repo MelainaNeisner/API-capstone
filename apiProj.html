@@ -16,23 +16,22 @@
       <div class="enterButton">
         <button class="gotBeer">Got Beer?</button>
       </div>
-      <h1>Find a breweriers near you!</h1>
-        <form class="beerForm hidden">
-          <label for="search-term">
-          </label>
-          <input type="text" name="search-term" id="searchBeer" class="searchBeer" placeholder ="Search Breweries by City!">
-          <input type="submit" value="" class="getBeer" >
-        </form>
-        <p id="js-error-message" class="error-message"></p>
+      <div class="searchBox hidden">
+        <h1>Find a breweriers near you!</h1>
+          <form class="beerForm">
+            <label for="search-term"></label>
+            <input type="text" name="search-term" id="searchBeer" class="searchBeer" placeholder ="Search Breweries by City!">
+            <input type="submit" value="" class="getBeer" >
+          </form>
+          <p id="js-error-message" class="error-message"></p>
+        </div>
       </div>
    
-   <div class="second">
+  <div class="second alsoHidden">
       <div class="beerResults">
           <h2>Beer List</h2>
-          <ul class="beerList">
-          </ul>
-        </div>
-     <div class="mapBox"></div>
+          <ul class="beerList"></ul>
+      </div>
   </div>
   <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
   <script src="apiProj.js"></script>
